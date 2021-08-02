@@ -1,0 +1,14 @@
+<div *ngIf="show" #toastElement class="fsa-toast-error-wrapper" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast show fsa-toast-error" data-delay="10000" data-autohide="true" autohide="true"
+       role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body d-flex">
+      <i class="fas fa-exclamation-circle align-self-center m-2" style="font-size: 1.35rem"></i>
+      <div class="align-self-center">{{message}}</div>
+      <button type="button" class="btn-close ml-auto" (click)="hide()">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+

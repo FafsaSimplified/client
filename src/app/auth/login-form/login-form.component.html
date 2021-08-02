@@ -1,0 +1,62 @@
+<div class="col-lg-7 col-sm-12 col-12 mb-3">
+  <div class="card border-secondary p-3">
+    <div class="card-body">
+      <div class="text-dark text-title">
+        Log In
+      </div>
+      <div [formGroup]="loginForm">
+        <div class="form-group">
+          <label class="form-label mt-4">FSA ID Username, Email, or Mobile Phone</label>
+          <input type="text" name="id" class="form-control" formControlName="id" required>
+          <small class="form-text text-muted">Forgot My Username</small>
+          <div *ngIf="id.invalid && (id.dirty || id.touched)"
+               class="alert alert-danger mt-1">
+            <div *ngIf="id.errors?.required">
+              You must provide a valid response in the "Username, Email, or Phone" field. This field cannot be left
+              blank. Select Help (?) for more details.
+            </div>
+            <div *ngIf="id.errors?.validateId">
+              id is not strong
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label mt-4">Password</label>
+          <input type="password" class="form-control" formControlName="password" required>
+          <small class="form-text text-muted">Forgot My Password</small>
+          <div *ngIf="password.invalid && (password.touched)"
+               class="alert alert-danger mt-1">
+            <div *ngIf="password.errors?.required">
+              You must provide a response in the "Password" field. This field cannot be left blank. Select Help (?) for
+              more details.
+            </div>
+            <ng-container *ngIf="!password.errors?.required">
+              <div *ngIf="!password.errors?.passwordStrength?.hasUpperCase">
+                password needs to have a at least one uppercase letter
+              </div>
+              <div *ngIf="!password.errors?.passwordStrength?.hasLowerCase">
+                password needs to have a at least one lowercase letter
+              </div>
+              <div *ngIf="!password.errors?.passwordStrength?.hasNumeric">
+                password needs to have a at least one numeric value
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="login()">Log In</button>
+        <div class="d-flex justify-content-center">
+          <div class="col">
+            <hr>
+          </div>
+          <div class="text-dark">or</div>
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+        <button class="btn btn-outline-primary btn-block" routerLink="/create-account/launch">
+          Create an Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

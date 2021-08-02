@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import "lux.min.css";
+
+html, body {
+  min-height      : 100%;
+  margin          : 0;
+  scroll-behavior : smooth;
+  color           : #0d0d0d;
+  font-family     : "News Cycle", Roboto, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-family : "News Cycle", Roboto, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+h4 {
+  font-weight    : 700;
+  color          : #17232e;
+  font-size      : 1.125rem;
+  text-transform : none;
+  letter-spacing : normal;
+}
+
+.fsa-full-page {
+  min-height : 100vh;
+}
+
+.fsa-text-title {
+  color       : #0d0d0d;
+  font-size   : 1.75rem;
+  font-weight : 600;
+}
+
+.fsa-body-background {
+  background-color : #fafafa;
+}
+
+.fsa-bg-color-blue-pale {
+  background-color : #f6f9fb !important;
+}
+
+.fsa-icon {
+  font-size : 1.75rem;
+}
+
+
+.modal-transparent{
+  background-color : transparent !important;
+  outline          : none !important;
+  border           : 0 !important;
+}

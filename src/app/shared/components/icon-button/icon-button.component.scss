@@ -1,0 +1,10 @@
+.fsa-icon {
+  cursor    : pointer;
+  font-size : 1.35rem;
+
+  i {
+    &:hover, &:active, &:focus {
+      color : #0d0d0d !important;
+    }
+  }
+}

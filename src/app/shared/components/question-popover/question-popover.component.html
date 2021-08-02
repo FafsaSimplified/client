@@ -1,0 +1,23 @@
+<div class="d-inline-flex">
+  <app-icon-button icon="fas fa-question-circle" style="color:#9e9e94;"
+                   [popover]=popContentTemplate
+                   [outsideClick]="true"
+                   placement="right"
+                   #pop="bs-popover">
+  </app-icon-button>
+</div>
+<ng-template #popContentTemplate>
+  <div class="d-flex">
+
+    <div class="flex-fill mt-5 mx-1 fsa-popover-content overflow-auto">
+      <ng-content></ng-content>
+    </div>
+    <app-icon-button icon="fas fa-times" (click)="pop.hide()"></app-icon-button>
+  </div>
+</ng-template>
+<!--<button type="button" class="btn btn-default btn-secondary"-->
+<!--        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."-->
+<!--        [adaptivePosition]="false"-->
+<!--        placement="right">-->
+<!--  Popover on right-->
+<!--</button>-->
