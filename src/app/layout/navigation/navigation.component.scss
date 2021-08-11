@@ -1,7 +1,38 @@
-.fsa-logo{
+.fsa-logo {
   object-fit      : cover;
   width           : 202px;
   height          : 28px;
   object-position : 10px 0px;
   transform       : translateX(-10px);
+}
+
+
+.bg-light {
+  border : 0;
+}
+
+.navbar {
+  border-bottom : 1px solid rgb(202, 207, 208);
+}
+
+.dropdown-menu {
+  margin           : 0 !important;
+  border-radius    : 0;
+  border           : 0;
+  //border-top    : 10px solid black;
+  border-top       : 1px solid rgb(202, 207, 208);
+  //box-shadow       : 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  width            : 100% !important;
+  background-color : #fff;
+  padding          : 18px;
+  top              : 101px;
+}
+
+.dropdown.open {
+  position : static;
+}
+
+.fsa-dropdown-menu {
+  display: flex;
+  flex-direction: row;
 }

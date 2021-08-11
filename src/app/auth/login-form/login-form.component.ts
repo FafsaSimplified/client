@@ -19,9 +19,6 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.loginForm.valueChanges.subscribe(value => {
-      this.setLoginDto(value);
-    });
   }
 
   private setLoginDto(value: { id: string, password: string }) {
@@ -65,7 +62,10 @@ export class LoginFormComponent implements OnInit {
   initForm(): void {
     this.loginForm = this.fb.group({
       id: ['', [Validators.required, this.validateId()]],
-      password: ['', [Validators.required, this.validatePassword()]]
+      password: ['', [Validators.required]]
+    });
+    this.loginForm.valueChanges.subscribe(value => {
+      this.setLoginDto(value);
     });
   }
 
@@ -84,28 +84,6 @@ export class LoginFormComponent implements OnInit {
         return null;
       }
       return null;
-    };
-  }
-
-  validatePassword() {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const value = control.value;
-      if (!value) {
-        return null;
-      }
-      const hasUpperCase = /[A-Z]+/.test(value);
-      const hasLowerCase = /[a-z]+/.test(value);
-      const hasNumeric = /[0-9]+/.test(value);
-      const passwordValid = hasUpperCase && hasLowerCase && hasNumeric;
-      const res = !passwordValid ? {passwordStrength: false} : null;
-      console.log('pas res', res);
-      return !passwordValid ? {
-        passwordStrength: {
-          hasUpperCase,
-          hasLowerCase,
-          hasNumeric
-        }
-      } : null;
     };
   }
 }

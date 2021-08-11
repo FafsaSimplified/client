@@ -4,12 +4,18 @@
 }
 
 .home-main-title {
-  font-size   : 2.25rem;
-  line-height : 2.375rem;
-  font-weight : 700;
-  color       : #fff;
+  font-family    : "News Cycle", Roboto, serif;
+  font-size      : 3.25rem;
+  line-height    : 3.375rem;
+  font-weight    : 700;
+  color          : #fff;
+  letter-spacing : normal;
+  text-transform : none;
 }
 
-.fsa-color-white {
-  color : #fff !important;
+.fsa-green-line {
+  border-top    : 3px solid #47b61f;
+  margin-top    : 0.75rem !important;
+  margin-bottom : 0.75rem !important;
+  width         : 35%;
 }

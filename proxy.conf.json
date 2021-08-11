@@ -2,5 +2,9 @@
   "/api/users": {
     "target": "http://localhost:8081/",
     "secure": false
+  },
+  "/api/auth": {
+    "target": "http://localhost:8081/",
+    "secure": false
   }
 }

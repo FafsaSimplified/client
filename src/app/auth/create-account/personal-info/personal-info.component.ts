@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CreateAccountService} from '../create-account.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -6,7 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit {
-  constructor() {
+  constructor(private createAccountService: CreateAccountService) {
+    this.createAccountService.step = 1;
   }
 
   ngOnInit() {

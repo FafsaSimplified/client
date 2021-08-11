@@ -7,54 +7,149 @@
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarColor03" [collapse]="isCollapsed">
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown" dropdown>
-          <a class="nav-link dropdown-toggle" dropdownToggle aria-controls="dropdown-basic"
+          <a class="nav-link dropdown-toggle" dropdownToggle aria-controls="basic-link-dropdown"
              aria-expanded="false" href (click)="false">UNDERSTAND AID</a>
-          <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+          <div id="basic-link-dropdown" role="menu"
+               *dropdownMenu class="dropdown-menu">
+            <div class="fsa-dropdown-menu">
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">How Financial Aid Works</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Types of Financial Aid</a>
+                <a class="dropdown-item" href="#">Grants</a>
+                <a class="dropdown-item" href="#">Scholarships</a>
+                <a class="dropdown-item" href="#">Loans</a>
+                <a class="dropdown-item" href="#">Aid for Military Families</a>
+                <a class="dropdown-item" href="#">Aid for International Study</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Financial Aid Eligibility</a>
+                <a class="dropdown-item" href="#">Eligibility Requirements</a>
+                <a class="dropdown-item" href="#">Staying Eligible</a>
+                <a class="dropdown-item" href="#">Regaining Eligibility</a>
+              </div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+            </div>
           </div>
         </li>
         <li class="nav-item dropdown" dropdown>
           <a class="nav-link dropdown-toggle" dropdownToggle aria-controls="dropdown-basic"
              aria-expanded="false" href (click)="false">APPLY FOR AID</a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <div class="fsa-dropdown-menu">
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">How Financial Aid Works</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Types of Financial Aid</a>
+                <a class="dropdown-item" href="#">Grants</a>
+                <a class="dropdown-item" href="#">Scholarships</a>
+                <a class="dropdown-item" href="#">Loans</a>
+                <a class="dropdown-item" href="#">Aid for Military Families</a>
+                <a class="dropdown-item" href="#">Aid for International Study</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Financial Aid Eligibility</a>
+                <a class="dropdown-item" href="#">Eligibility Requirements</a>
+                <a class="dropdown-item" href="#">Staying Eligible</a>
+                <a class="dropdown-item" href="#">Regaining Eligibility</a>
+              </div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+            </div>
           </div>
         </li>
         <li class="nav-item dropdown" dropdown>
           <a class="nav-link dropdown-toggle" dropdownToggle aria-controls="dropdown-basic"
              aria-expanded="false" href (click)="false">COMPLETE AID PROCESS</a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <div class="fsa-dropdown-menu">
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">How Financial Aid Works</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Types of Financial Aid</a>
+                <a class="dropdown-item" href="#">Grants</a>
+                <a class="dropdown-item" href="#">Scholarships</a>
+                <a class="dropdown-item" href="#">Loans</a>
+                <a class="dropdown-item" href="#">Aid for Military Families</a>
+                <a class="dropdown-item" href="#">Aid for International Study</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Financial Aid Eligibility</a>
+                <a class="dropdown-item" href="#">Eligibility Requirements</a>
+                <a class="dropdown-item" href="#">Staying Eligible</a>
+                <a class="dropdown-item" href="#">Regaining Eligibility</a>
+              </div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+            </div>
           </div>
         </li>
         <li class="nav-item dropdown" dropdown>
           <a class="nav-link dropdown-toggle" dropdownToggle aria-controls="dropdown-basic"
              aria-expanded="false" href (click)="false">MANAGE LOANS</a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <div class="fsa-dropdown-menu">
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">How Financial Aid Works</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Types of Financial Aid</a>
+                <a class="dropdown-item" href="#">Grants</a>
+                <a class="dropdown-item" href="#">Scholarships</a>
+                <a class="dropdown-item" href="#">Loans</a>
+                <a class="dropdown-item" href="#">Aid for Military Families</a>
+                <a class="dropdown-item" href="#">Aid for International Study</a>
+              </div>
+              <div class="flex-fill">
+                <a class="dropdown-item fsa_Link_HeaderLevel2HowAidWorks" href="#">Financial Aid Eligibility</a>
+                <a class="dropdown-item" href="#">Eligibility Requirements</a>
+                <a class="dropdown-item" href="#">Staying Eligible</a>
+                <a class="dropdown-item" href="#">Regaining Eligibility</a>
+              </div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+              <div class="flex-fill"></div>
+            </div>
           </div>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

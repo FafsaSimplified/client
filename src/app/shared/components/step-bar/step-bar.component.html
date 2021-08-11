@@ -1,0 +1,10 @@
+<ng-container *ngIf="currentStep > 0">
+  <div class="d-flex">
+    <div *ngFor="let step of counter(steps); index as i" class="fsa-step-rect flex-fill"
+         [class.fsa-step-rect-fill]="(i < currentStep)"
+         [class.fsa-step-rect-left]="i ===0"
+         [class.fsa-step-rect-right]="i ===steps-1">
+    </div>
+  </div>
+  <div class="mt-2">Step {{currentStep}} of {{steps}}</div>
+</ng-container>

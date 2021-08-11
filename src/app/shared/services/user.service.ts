@@ -15,13 +15,13 @@ export class UserService {
   error = false;
   errorMessage: string;
   user: User;
-  url = environment.userApiUrl;
+  url = environment.authApiUrl;
 
   constructor(private httpClient: HttpClient) {
   }
 
   public login(userLogin: LoginDto): Observable<User> {
     console.log('Attempt login...');
-    return this.httpClient.post<User>(`${this.url}/session`, userLogin);
+    return this.httpClient.post<User>(`${this.url}/authenticate`, userLogin);
   }
 }

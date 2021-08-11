@@ -21,14 +21,13 @@ export class ErrorToastComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('toast changes', this.toast, this.show);
+    // console.log('toast changes', this.toast, this.show);
     if (this.show) {
       this.autoHide();
     }
   }
 
   ngAfterViewInit(): void {
-    console.log('toast', this.toast);
   }
 
   autoHide(): void {

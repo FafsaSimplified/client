@@ -9,16 +9,19 @@ import { QuestionPopoverComponent } from './components/question-popover/question
 import {PopoverModule} from 'ngx-bootstrap/popover';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 import { SsnMaskDirective } from './directives/ssn-mask.directive';
+import { StepBarComponent } from './components/step-bar/step-bar.component';
+import { FieldErrorComponent } from './components/field-error/field-error.component';
 
 
 @NgModule({
-  declarations: [LoadingSpinnerComponent, ErrorToastComponent, BlockingLoadingSpinnerComponent, QuestionPopoverComponent, IconButtonComponent, SsnMaskDirective],
+  declarations: [LoadingSpinnerComponent, ErrorToastComponent, BlockingLoadingSpinnerComponent, QuestionPopoverComponent, IconButtonComponent, SsnMaskDirective, StepBarComponent, FieldErrorComponent],
   exports: [
     LoadingSpinnerComponent,
     BlockingLoadingSpinnerComponent,
     ErrorToastComponent,
     QuestionPopoverComponent,
-    SsnMaskDirective
+    SsnMaskDirective,
+    StepBarComponent
   ],
   imports: [
     CommonModule,
