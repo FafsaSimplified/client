@@ -1,0 +1,14 @@
+<div class="fsa-body-background">
+  <div class="container">
+    <div class="my-5 py-5 mx-2">
+      <div class="col-12 col-md-9">
+        <div class="fsa-text-title my-4">Create an Account (FSA ID)</div>
+        <app-step-bar steps="7" [(currentStep)]="createAccountService.step" class="m-1"></app-step-bar>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<div class="m-5" style="background-color: #1c7a59">
+  <app-error-toast [(show)]="createAccountService.error" [message]="createAccountService.errorMessage"></app-error-toast>
+</div>

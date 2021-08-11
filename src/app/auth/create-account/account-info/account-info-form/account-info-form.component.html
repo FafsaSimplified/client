@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-md-8" [formGroup]="accountInfoForm">
+    <div class="form-group">
+      <label class="form-label mt-4">Username</label>
+      <div class="d-flex">
+        <input type="text" name="username" formControlName="username" class="form-control fsa-form-control-light"
+               required>
+        <app-question-popover class="align-self-center ml-1">
+          <p>
+            Your username must be between 6 and 30 characters in length. You can use any combination of numbers and/or
+            uppercase and lowercase letters.
+          </p>
+          <p>
+            Note: You cannot choose a username that has 10 numbers and no letters.
+          </p>
+        </app-question-popover>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Email Address</label>
+      <div class="d-flex">
+        <input type="email" name="email" formControlName="email" class="form-control fsa-form-control-light" required>
+        <app-question-popover class="align-self-center ml-1">
+          <p>An email address can only be associated with one account (FSA ID). The email address must be in the
+            following format xxxxxxx@xxxxxx.xxx
+          </p>
+          <p>Note: We suggest not using your school email address. You will continue to use this account after you leave
+            school, including during loan repayment if you receive student loans.</p>
+        </app-question-popover>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Confirm Email Address</label>
+      <div class="d-flex">
+        <input type="text" name="confirmEmail" formControlName="confirmEmail"
+               class="form-control fsa-form-control-light" required>
+        <app-question-popover class="align-self-center ml-1">
+          <p>
+            Reenter your email address to confirm it’s correct. This field is case-sensitive and must exactly match your
+            entry in the “Email Address” field.
+          </p>
+        </app-question-popover>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Password</label>
+      <div class="d-flex">
+        <input type="password" name="password" formControlName="password" class="form-control fsa-form-control-light"
+               required>
+        <app-question-popover class="align-self-center ml-1">
+          <p>
+            Your password must be 8 to 30 characters in length and must contain at least one uppercase letter, one
+            lowercase letter, and one number.
+          </p>
+          <p>
+            Your password is case-sensitive.
+          </p>
+          <p>You can’t use personal identifiers such as your first or last name, date of birth, or Social Security
+            number in your password.</p>
+        </app-question-popover>
+      </div>
+      <div *ngIf="password.invalid && (password.touched)"
+           class="alert alert-danger mt-1" style="margin-right: 26px">
+        <div *ngIf="password.errors?.required">
+          You must provide a response in the "Password" field. This field cannot be left blank. Select Help (?) for
+          more details.
+        </div>
+        <ng-container *ngIf="!password.errors?.required">
+          <div *ngIf="!password.errors?.passwordStrength?.hasUpperCase">
+            password needs to have a at least one uppercase letter
+          </div>
+          <div *ngIf="!password.errors?.passwordStrength?.hasLowerCase">
+            password needs to have a at least one lowercase letter
+          </div>
+          <div *ngIf="!password.errors?.passwordStrength?.hasNumeric">
+            password needs to have a at least one numeric value
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Confirm Password</label>
+      <div class="d-flex">
+        <input type="password" name="confirmPassword" formControlName="confirmPassword"
+               class="form-control fsa-form-control-light" required>
+        <app-question-popover class="align-self-center ml-1">
+          <p>Reenter your password to confirm it’s correct. This field is case-sensitive and must exactly match your
+            entry in the “Password” field.</p>
+        </app-question-popover>
+      </div>
+    </div>
+    <!--    action-->
+    <div class="row mt-3">
+      <div class="col-sm-6 p-0 d-flex">
+        <button class="btn btn-outline-primary btn-block m-2" routerLink="/create-account/launch">Cancel</button>
+      </div>
+      <div class="col-sm-6 p-0 d-flex">
+        <button class="btn btn-primary btn-block m-2" (click)="goToNext()">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
