@@ -11,6 +11,7 @@ import {CommunicationPreferencesComponent} from './auth/create-account/communica
 import {ConfirmAndVerifyComponent} from './auth/create-account/confirm-and-verify/confirm-and-verify.component';
 import {ChallengeQuestionsComponent} from './auth/create-account/challenge-questions/challenge-questions.component';
 import {VerifyContactInfoComponent} from './auth/create-account/verify-contact-info/verify-contact-info.component';
+import {SignUpGuardService} from './shared/services/sign-up-guard.service';
 
 
 const routes: Routes = [
@@ -22,13 +23,15 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'launch', pathMatch: 'full'},
       {path: 'launch', component: LaunchComponent},
-      {path: 'personal-info', component: PersonalInfoComponent},
-      {path: 'account-info', component: AccountInfoComponent},
-      {path: 'contact-info', component: ContactInfoComponent},
-      {path: 'communication-preferences', component: CommunicationPreferencesComponent},
-      {path: 'challenge-questions', component: ChallengeQuestionsComponent},
-      {path: 'confirm-verify', component: ConfirmAndVerifyComponent},
-      {path: 'verify-contact-info', component: VerifyContactInfoComponent}]
+      {path: 'personal-info', component: PersonalInfoComponent, canActivate: [SignUpGuardService]},
+      {path: 'account-info', component: AccountInfoComponent, canActivate: [SignUpGuardService]},
+      {path: 'contact-info', component: ContactInfoComponent, canActivate: [SignUpGuardService]},
+      {path: 'communication-preferences', component: CommunicationPreferencesComponent, canActivate: [SignUpGuardService]},
+      {path: 'challenge-questions', component: ChallengeQuestionsComponent, canActivate: [SignUpGuardService]},
+      {path: 'confirm-verify', component: ConfirmAndVerifyComponent, canActivate: [SignUpGuardService]},
+      {path: 'verify-contact-info', component: VerifyContactInfoComponent, canActivate: [SignUpGuardService]},
+      {path: '**', redirectTo: 'launch'}
+    ],
   },
 ];
 

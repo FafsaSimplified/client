@@ -36,9 +36,7 @@
 }
 
 .dropdown-item {
-  max-width : 200px;
   white-space : normal;
-  //background-color: #1c7a59;
   @media screen and (max-width : 1000px) {
     white-space : nowrap;
   }

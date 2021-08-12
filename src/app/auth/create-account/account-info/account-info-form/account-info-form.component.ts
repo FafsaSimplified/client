@@ -20,7 +20,11 @@ export class AccountInfoFormComponent implements OnInit {
     this.initForm();
   }
 
-  async goToNext() {
+  async goBack() {
+    await this.router.navigate(['/create-account/personal-info']);
+  }
+
+  async goNext() {
     if (this.accountInfoForm.valid) {
       const accountInfo = this.accountInfoForm.value;
       const isValid = await this.createAccountService.validateAccountInfo(accountInfo);
@@ -85,5 +89,6 @@ export class AccountInfoFormComponent implements OnInit {
   get confirmPassword() {
     return this.accountInfoForm.get('confirmPassword');
   }
+
 
 }

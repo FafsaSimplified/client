@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CreateAccountService} from '../../create-account.service';
 
 @Component({
   selector: 'app-launch-card',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LaunchCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private createAccountService: CreateAccountService) {
+  }
 
   ngOnInit() {
   }
 
+  getStarted() {
+    this.createAccountService.init();
+    this.router.navigate(['/create-account/personal-info'])
+      .then();
+  }
 }

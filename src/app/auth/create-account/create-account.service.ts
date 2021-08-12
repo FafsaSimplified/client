@@ -11,10 +11,12 @@ import {SignupDto} from '../../shared/dto/signup-dto';
 export class CreateAccountService {
   step = 0;
   user: User;
-  private error: boolean;
-  private errorMessage: string;
+  error: boolean;
+  errorMessage: string;
   url = environment.authApiUrl;
   signUpDto: SignupDto;
+  loading = false;
+  activated = false;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -61,20 +63,28 @@ export class CreateAccountService {
     firstName: string, middleName: string, lastName: string,
     month: number, day: number, year: number, ssn: string
   }): Promise<boolean> {
-    const {ssn, day, month, year} = personalInfo;
-    let dto = new SignupDto();
-    dto.dob = this.setDate(year, month, day);
-    dto.ssn = ssn;
-    const dobValid = await this.checkDobValid(dto).toPromise();
-    dto = new SignupDto();
-    dto.ssn = ssn;
-    const ssnValid = await this.checkSsnValid(dto).toPromise();
-    if (!dobValid) {
-      this.setError('dob is not valid');
+    let dobValid = false;
+    let ssnValid = false;
+    this.loading = true;
+    try {
+      const {ssn, day, month, year} = personalInfo;
+      let dto = new SignupDto();
+      dto.dob = this.setDate(year, month, day);
+      dto.ssn = ssn;
+      dobValid = await this.checkDobValid(dto).toPromise();
+      dto = new SignupDto();
+      dto.ssn = ssn;
+      ssnValid = await this.checkSsnValid(dto).toPromise();
+      if (!dobValid) {
+        this.setError('dob is not valid');
+      }
+      if (!ssnValid) {
+        this.setError('ssn is not valid');
+      }
+    } catch (err) {
+      this.setError(err.message);
     }
-    if (!ssnValid) {
-      this.setError('ssn is not valid');
-    }
+    this.loading = false;
     return ssnValid && dobValid;
   }
 
@@ -99,12 +109,14 @@ export class CreateAccountService {
     firstName: string, middleName: string, lastName: string,
     month: number, day: number, year: number, ssn: string
   }) {
+    this.loading = true;
     this.signUpDto = new SignupDto();
     this.signUpDto.firstName = personalInfo.firstName;
     this.signUpDto.middleName = personalInfo.middleName;
     this.signUpDto.lastName = personalInfo.lastName;
     this.signUpDto.ssn = personalInfo.ssn;
     this.signUpDto.dob = this.setDate(personalInfo.year, personalInfo.month, personalInfo.day);
+    this.loading = false;
     console.log(this.signUpDto);
   }
 
@@ -135,7 +147,34 @@ export class CreateAccountService {
     console.log(this.signUpDto);
   }
 
-  createFsaAccount(): Observable<User> {
-    return this.register(this.signUpDto);
+  async createFsaAccount(): Promise<User> {
+    let user: User = null;
+    try {
+      user = await this.register(this.signUpDto).toPromise();
+    } catch (error) {
+      const message = (error.error.message) ? error.error.message : error.error;
+      this.setError(message);
+    }
+    return user;
+  }
+
+  init() {
+    this.signUpDto = new SignupDto();
+    this.signUpDto.firstName = '';
+    this.signUpDto.middleName = '';
+    this.signUpDto.lastName = '';
+    this.signUpDto.dob = '';
+    this.signUpDto.ssn = '';
+    this.signUpDto.smsOptIn = false;
+    this.signUpDto.language = 'EN';
+    this.signUpDto.cellPhone = '';
+    this.signUpDto.email = '';
+    this.signUpDto.password = '';
+    this.signUpDto.username = '';
+    this.signUpDto.streetAddress = '';
+    this.signUpDto.city = '';
+    this.signUpDto.state = '';
+    this.signUpDto.zipCode = '';
+    this.activated = true;
   }
 }

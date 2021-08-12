@@ -19,7 +19,9 @@ export class ContactInfoFormComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
-
+  async goBack() {
+    await this.router.navigate(['/create-account/personal-info']);
+  }
   async goToNext() {
     if (this.contactInfoForm.valid) {
       const accountInfo = this.contactInfoForm.value;

@@ -35,14 +35,15 @@ export class PersonalInfoFormComponent implements OnInit {
   }
 
   private initForm() {
+    const {firstName, middleName, lastName, dob, ssn} = this.createAccountService.signUpDto;
     this.personalInfoForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      middleName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      firstName: [firstName, [Validators.required]],
+      middleName: [middleName, [Validators.required]],
+      lastName: [lastName, [Validators.required]],
       month: [null, [Validators.required, Validators.min(1), Validators.max(12)]],
       day: [null, [Validators.required, Validators.min(1), Validators.max(31)]],
       year: [null, [Validators.required]],
-      ssn: ['', [Validators.required]],
+      ssn: [ssn, [Validators.required]],
     });
     this.personalInfoForm.valueChanges.subscribe(value => {
       value.ssn = value.ssn.replace(/\D/g, '');

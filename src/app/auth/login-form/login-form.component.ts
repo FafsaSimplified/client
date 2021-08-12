@@ -3,6 +3,7 @@ import {UserService} from '../../shared/services/user.service';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {User} from '../../shared/models/user';
 import {LoginDto} from '../../shared/dto/login-dto';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,8 @@ export class LoginFormComponent implements OnInit {
   loginDto: LoginDto;
   loginForm: FormGroup;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private router: Router,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -43,6 +45,11 @@ export class LoginFormComponent implements OnInit {
       this.userService.login(this.loginDto)
         .subscribe(value => {
           console.log(value);
+          this.userService.error = false;
+          this.userService.loading = false;
+          this.userService.user = value;
+          this.userService.isLoggedIn = true;
+          this.router.navigate(['/']).then();
         }, error => {
           this.userService.error = true;
           this.userService.loading = false;

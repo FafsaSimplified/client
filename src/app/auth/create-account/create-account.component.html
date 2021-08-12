@@ -10,5 +10,9 @@
   </div>
 </div>
 <div class="m-5" style="background-color: #1c7a59">
-  <app-error-toast [(show)]="createAccountService.error" [message]="createAccountService.errorMessage"></app-error-toast>
+  <app-error-toast [(show)]="createAccountService.error"
+                   [message]="createAccountService.errorMessage"></app-error-toast>
+</div>
+<div class="m-5" style="margin-top:500px; background-color: #0f4a63">
+  <app-blocking-loading-spinner [show]="this.createAccountService.loading"></app-blocking-loading-spinner>
 </div>

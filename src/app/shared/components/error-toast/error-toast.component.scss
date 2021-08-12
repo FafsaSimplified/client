@@ -21,6 +21,10 @@ $white  : #E5E5E5;
   }
 }
 
+.toast {
+  box-shadow : none;
+}
+
 .fsa-toast-error-wrapper {
   -webkit-font-smoothing : antialiased;
   background-color       : $danger;
@@ -41,4 +45,7 @@ $white  : #E5E5E5;
   bottom                 : 24px;
   transform              : translateX(-50%);
   margin-top             : 16px;
+  padding                : 5px;
+  word-break             : break-word;
+  box-shadow             : 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }

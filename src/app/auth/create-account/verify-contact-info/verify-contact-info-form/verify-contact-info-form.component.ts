@@ -18,11 +18,14 @@ export class VerifyContactInfoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  createFsaAccount() {
-    this.createAccountService.createFsaAccount().subscribe(async value => {
+  async goBack() {
+    await this.router.navigate(['/create-account/personal-info']);
+  }
+
+  async createFsaAccount() {
+    const user = await this.createAccountService.createFsaAccount();
+    if (user) {
       await this.router.navigate(['/']);
-    }, error => {
-      console.log('account cannot be created', error);
-    });
+    }
   }
 }
