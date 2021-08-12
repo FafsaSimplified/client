@@ -19,9 +19,11 @@ export class ContactInfoFormComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
+
   async goBack() {
     await this.router.navigate(['/create-account/personal-info']);
   }
+
   async goToNext() {
     if (this.contactInfoForm.valid) {
       const accountInfo = this.contactInfoForm.value;
@@ -36,14 +38,15 @@ export class ContactInfoFormComponent implements OnInit {
   }
 
   private initForm() {
+    const {streetAddress, city, state, zipCode, cellPhone, smsOptIn} = this.createAccountService.signUpDto;
     this.contactInfoForm = this.fb.group({
-      streetAddress: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      zipCode: ['', [Validators.required]],
-      cellPhone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      streetAddress: [streetAddress, [Validators.required]],
+      city: [city, [Validators.required]],
+      state: [state, [Validators.required]],
+      zipCode: [zipCode, [Validators.required]],
+      cellPhone: [cellPhone, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       confirmCellPhone: ['', [Validators.required]],
-      smsOptIn: [false, []],
+      smsOptIn: [smsOptIn, []],
     });
     this.contactInfoForm.valueChanges.subscribe(value => {
     });

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {CreateAccountService} from '../../create-account.service';
+import {UserService} from '../../../../shared/services/user.service';
 
 @Component({
   selector: 'app-verify-contact-info-form',
@@ -12,7 +13,8 @@ export class VerifyContactInfoFormComponent implements OnInit {
 
   constructor(private router: Router,
               private fb: FormBuilder,
-              private createAccountService: CreateAccountService) {
+              private createAccountService: CreateAccountService,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class VerifyContactInfoFormComponent implements OnInit {
   async createFsaAccount() {
     const user = await this.createAccountService.createFsaAccount();
     if (user) {
+      this.userService.setUser(user);
       await this.router.navigate(['/']);
     }
   }

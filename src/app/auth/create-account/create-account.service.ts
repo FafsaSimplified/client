@@ -110,7 +110,6 @@ export class CreateAccountService {
     month: number, day: number, year: number, ssn: string
   }) {
     this.loading = true;
-    this.signUpDto = new SignupDto();
     this.signUpDto.firstName = personalInfo.firstName;
     this.signUpDto.middleName = personalInfo.middleName;
     this.signUpDto.lastName = personalInfo.lastName;
@@ -132,10 +131,10 @@ export class CreateAccountService {
 
   setContactInfo(contactInfo: {
     streetAddress: string, city: string, state: string,
-    zipCode: string, cellPhone: string
+    zipCode: string, cellPhone: string, smsOptIn: boolean
   }) {
     const {
-      streetAddress, city, state, zipCode, cellPhone
+      streetAddress, city, state, zipCode, cellPhone, smsOptIn
     } = contactInfo;
     this.signUpDto.streetAddress = streetAddress;
     this.signUpDto.city = city;
@@ -143,8 +142,7 @@ export class CreateAccountService {
     this.signUpDto.zipCode = zipCode;
     this.signUpDto.cellPhone = cellPhone;
     this.signUpDto.language = 'EN';
-    this.signUpDto.smsOptIn = true;
-    console.log(this.signUpDto);
+    this.signUpDto.smsOptIn = smsOptIn;
   }
 
   async createFsaAccount(): Promise<User> {

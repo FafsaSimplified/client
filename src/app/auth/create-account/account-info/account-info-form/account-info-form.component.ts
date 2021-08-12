@@ -38,12 +38,13 @@ export class AccountInfoFormComponent implements OnInit {
   }
 
   private initForm() {
+    const {username, email, password} = this.createAccountService.signUpDto;
     this.accountInfoForm = this.fb.group({
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      username: [username, [Validators.required]],
+      email: [email, [Validators.required]],
       confirmEmail: ['', [Validators.required]],
-      password: [null, [Validators.required, this.validatePassword()]],
-      confirmPassword: [null, [Validators.required]],
+      password: [password, [Validators.required, this.validatePassword()]],
+      confirmPassword: ['', [Validators.required]],
     });
     this.accountInfoForm.valueChanges.subscribe(value => {
     });

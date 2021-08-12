@@ -48,10 +48,9 @@ export class BlockingLoadingSpinnerComponent implements OnInit, OnChanges, After
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges');
     // changes.prop contains the old and the new value...
     if (this.show) {
-      console.log('show modal');
+      // console.log('show modal');
       this.modalRef = this.modalService.show(this.modal, this.config);
     } else if (this.modalRef) {
       this.modalRef.hide();

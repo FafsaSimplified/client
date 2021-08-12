@@ -24,4 +24,9 @@ export class UserService {
     console.log('Attempt login...');
     return this.httpClient.post<User>(`${this.url}/authenticate`, userLogin);
   }
+
+  setUser(user: User) {
+    this.isLoggedIn = true;
+    this.user = user;
+  }
 }
