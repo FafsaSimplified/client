@@ -12,7 +12,6 @@ import {SharedModule} from '../shared/shared.module';
 import {AccountInfoComponent} from './create-account/account-info/account-info.component';
 import {AccountInfoFormComponent} from './create-account/account-info/account-info-form/account-info-form.component';
 import {CreateAccountComponent} from './create-account/create-account.component';
-import {CreateAccountService} from './create-account/create-account.service';
 import {ContactInfoComponent} from './create-account/contact-info/contact-info.component';
 import {CommunicationPreferencesComponent} from './create-account/communication-preferences/communication-preferences.component';
 import {ChallengeQuestionsComponent} from './create-account/challenge-questions/challenge-questions.component';
@@ -38,7 +37,7 @@ import {CommunicationPreferencesFormComponent} from './create-account/communicat
     RouterModule,
     SharedModule
   ],
-  providers: [CreateAccountService]
+  providers: []
 })
 export class AuthModule {
 }

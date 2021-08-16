@@ -146,6 +146,7 @@ export class CreateAccountService {
   }
 
   async createFsaAccount(): Promise<User> {
+    this.loading = true;
     let user: User = null;
     try {
       user = await this.register(this.signUpDto).toPromise();
@@ -153,6 +154,7 @@ export class CreateAccountService {
       const message = (error.error.message) ? error.error.message : error.error;
       this.setError(message);
     }
+    this.loading = false;
     return user;
   }
 

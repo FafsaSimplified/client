@@ -17,7 +17,7 @@ import {SignUpGuardService} from './shared/services/sign-up-guard.service';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginPageComponent},
+  {path: 'login', component: LoginPageComponent, loadChildren: () => import('./auth/auth.module').then(value => value.AuthModule)},
   {
     path: 'create-account', component: CreateAccountComponent,
     children: [
@@ -33,6 +33,7 @@ const routes: Routes = [
       {path: '**', redirectTo: 'launch'}
     ],
   },
+  { path: 'application', loadChildren: () => import('./application/application.module').then(m => m.ApplicationModule) },
 ];
 
 @NgModule({
