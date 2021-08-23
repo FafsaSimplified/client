@@ -153,10 +153,35 @@ export class CreateAccountService {
     } catch (error) {
       const message = (error.error.message) ? error.error.message : error.error;
       this.setError(message);
+    } finally {
+      this.loading = false;
     }
-    this.loading = false;
     return user;
   }
+
+  async createFsaAccountTest(): Promise<User> {
+    this.loading = true;
+    let user: User = null;
+    let signUp = new SignupDto();
+    signUp = {
+      ssn: '286983684', city: 'fewfef', zipCode: '33434', smsOptIn: true,
+      state: 'VA', email: 'fewlajhfeljlfajwelf@weami.com', cellPhone: '2938395939',
+      password: 'klfhawkehfkhekflahKFFKEKHFE334', dob: '2000-02-02',
+      streetAddress: 'fewljkfel fkehwfklewlkfnakelflnakl kefw',
+      lastName: 'fewflkehf', firstName: 'fewljflefew', middleName: 'f',
+      username: 'fewhfklawenflew32343', language: 'EN'
+    };
+    try {
+      user = await this.register(signUp).toPromise();
+    } catch (error) {
+      const message = (error.error.message) ? error.error.message : error.error;
+      this.setError(message);
+    } finally {
+      this.loading = false;
+    }
+    return user;
+  }
+
 
   init() {
     this.signUpDto = new SignupDto();

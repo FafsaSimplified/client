@@ -71,7 +71,7 @@
       <label class="form-label mt-4">Mobile Phone Number</label>
       <div class="d-flex">
         <input type="text" name="cellPhone" formControlName="cellPhone" class="form-control fsa-form-control-light"
-               required maxlength="10" minlength="10">
+               required maxlength="14" minlength="14" (input)="maskPhone($event)">
         <app-question-popover class="align-self-center ml-1">
           <p>Enter your first name exactly as it appears on your Social Security card. We use your name to verify your
             identity.</p>
@@ -86,7 +86,7 @@
       <label class="form-label mt-4">Confirm Mobile Phone Number</label>
       <div class="d-flex">
         <input type="text" name="confirmCellPhone" formControlName="confirmCellPhone"
-               class="form-control fsa-form-control-light" required>
+               class="form-control fsa-form-control-light" required maxlength="14" minlength="14" (input)="maskPhone($event)">
         <app-question-popover class="align-self-center ml-1">
           <p>Enter your first name exactly as it appears on your Social Security card. We use your name to verify your
             identity.</p>

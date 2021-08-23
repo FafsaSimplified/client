@@ -15,7 +15,6 @@ export class SignUpGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot):
     Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(this.createAccountService.activated);
     if (this.createAccountService.activated) {
       return true;
     } else {

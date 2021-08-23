@@ -9,6 +9,6 @@ import {UserService} from './shared/services/user.service';
 export class AppComponent {
   title = 'client';
 
-  constructor(public userService: UserService ) {
+  constructor(public userService: UserService) {
   }
 }

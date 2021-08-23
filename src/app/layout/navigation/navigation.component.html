@@ -137,9 +137,22 @@
         <a class="col nav-link" routerLink="/create-account">Create Account</a>
       </ng-container>
       <ng-container *ngIf="userService.isLoggedIn">
-        <a class="nav-link" href="#" (click)="false">
-          {{userService.user?.username}}
-        </a>
+        <!--        <a class="nav-link" href="#" (click)="false">-->
+        <!--          {{userService.user?.firstName}}-->
+        <!--        </a>-->
+        <div class="nav-item dropdown" dropdown>
+          <a href class="nav-link dropdown-toggle" dropdownToggle (click)="false">
+            {{userService.user?.firstName}}
+          </a>
+          <div *dropdownMenu class="dropdown-menu">
+            <a href="#" class="dropdown-item">Dashboard</a>
+            <a href="#" class="dropdown-item">My Aid</a>
+            <a href="#" class="dropdown-item">My Documents</a>
+            <a href="#" class="dropdown-item">Settings</a>
+            <a href="#" class="dropdown-item">My Enrollment</a>
+            <a href="#" class="dropdown-item">Log Out</a>
+          </div>
+        </div>
       </ng-container>
     </div>
   </div>

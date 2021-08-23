@@ -25,6 +25,7 @@ export class AccountInfoFormComponent implements OnInit {
   }
 
   async goNext() {
+    console.log('errors', this.accountInfoForm.errors);
     if (this.accountInfoForm.valid) {
       const accountInfo = this.accountInfoForm.value;
       const isValid = await this.createAccountService.validateAccountInfo(accountInfo);
@@ -42,10 +43,10 @@ export class AccountInfoFormComponent implements OnInit {
     this.accountInfoForm = this.fb.group({
       username: [username, [Validators.required]],
       email: [email, [Validators.required]],
-      confirmEmail: ['', [Validators.required]],
+      confirmEmail: [email, [Validators.required]],
       password: [password, [Validators.required, this.validatePassword()]],
-      confirmPassword: ['', [Validators.required]],
-    });
+      confirmPassword: [password, [Validators.required]],
+    }, {validators: [this.confirmAndValidateEmail, this.confirmAndValidatePassword]});
     this.accountInfoForm.valueChanges.subscribe(value => {
     });
   }
@@ -91,5 +92,24 @@ export class AccountInfoFormComponent implements OnInit {
     return this.accountInfoForm.get('confirmPassword');
   }
 
+  confirmAndValidateEmail(control: AbstractControl): ValidationErrors | null {
+    const email = control.get('email');
+    const confirmEmail = control.get('confirmEmail');
+    if (email.value === confirmEmail.value) {
+      return null;
+    } else {
+      return {emailNotMatch: true};
+    }
+  }
+
+  confirmAndValidatePassword(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+    if (password.value === confirmPassword.value) {
+      return null;
+    } else {
+      return {passwordNotMatch: true};
+    }
+  }
 
 }

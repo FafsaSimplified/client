@@ -20,4 +20,10 @@ export class LaunchCardComponent implements OnInit {
     this.router.navigate(['/create-account/personal-info'])
       .then();
   }
+
+  testStarted() {
+    this.createAccountService.init();
+    // this.router.navigate(['/create-account/verify-contact-info']).then();
+    this.router.navigate(['/create-account/account-info']).then();
+  }
 }

@@ -28,5 +28,6 @@ export class UserService {
   setUser(user: User) {
     this.isLoggedIn = true;
     this.user = user;
+    this.loading = false;
   }
 }

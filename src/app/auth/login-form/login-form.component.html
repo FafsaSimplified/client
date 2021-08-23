@@ -26,7 +26,12 @@
         <div class="form-group">
           <label class="form-label mt-4">Password</label>
           <div class="d-flex">
-            <input type="password" class="form-control" formControlName="password" required>
+            <input #passElement type="password" class="form-control" formControlName="password"
+                   maxlength="30" minlength="8" required>
+            <div class="fsa-toggle-password"
+                 (click)="passElement.type=(passElement.type==='password')? 'text':'password'; ">
+              {{(passElement.type ==='password')? "Show Password": "Hide Password"}}
+            </div>
             <app-question-popover class="align-self-center ml-1">
               <p>Your password is case-sensitive and must be between 8 and 30 characters in length, and must contain at
                 least one uppercase letter, one lowercase letter, and one number.
@@ -37,7 +42,8 @@
           <small class="form-text text-muted">Forgot My Password</small>
           <div *ngIf="password.invalid && (password.touched)"
                class="alert alert-danger mt-1">
-            <div *ngIf="password.errors?.required">
+            <!--            <div *ngIf="password.errors?.required">-->
+            <div>
               You must provide a response in the "Password" field. This field cannot be left blank. Select Help (?) for
               more details.
             </div>

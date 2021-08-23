@@ -28,7 +28,16 @@ export class VerifyContactInfoFormComponent implements OnInit {
     const user = await this.createAccountService.createFsaAccount();
     if (user) {
       this.userService.setUser(user);
-      await this.router.navigate(['/']);
+      this.router.navigate(['/']).then(value => {
+      });
     }
+    // const user = await this.createAccountService.createFsaAccountTest();
+    // if (user) {
+    //   this.userService.setUser(user);
+    //   console.log('creat account loading:', this.createAccountService.loading);
+    //   this.router.navigate(['/']).then(value => {
+    //     console.log('creat account loading:', this.createAccountService.loading);
+    //   });
+    // }
   }
 }

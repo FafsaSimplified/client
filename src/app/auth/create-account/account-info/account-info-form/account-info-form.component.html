@@ -41,12 +41,23 @@
           </p>
         </app-question-popover>
       </div>
+      <div *ngIf="accountInfoForm.errors?.emailNotMatch && email.touched && (confirmEmail.touched)"
+           class="alert alert-danger mt-1" style="margin-right: 26px">
+        <div>
+          Email does not match.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label class="form-label mt-4">Password</label>
       <div class="d-flex">
-        <input type="password" name="password" formControlName="password" class="form-control fsa-form-control-light"
+        <input #passElement type="password" name="password" formControlName="password"
+               class="form-control fsa-form-control-light"
                required>
+        <div class="fsa-toggle-password"
+             (click)="passElement.type=(passElement.type==='password')? 'text':'password'; ">
+          {{(passElement.type === 'password') ? "Show Password" : "Hide Password"}}
+        </div>
         <app-question-popover class="align-self-center ml-1">
           <p>
             Your password must be 8 to 30 characters in length and must contain at least one uppercase letter, one
@@ -81,12 +92,22 @@
     <div class="form-group">
       <label class="form-label mt-4">Confirm Password</label>
       <div class="d-flex">
-        <input type="password" name="confirmPassword" formControlName="confirmPassword"
+        <input #cPassElement type="password" name="confirmPassword" formControlName="confirmPassword"
                class="form-control fsa-form-control-light" required>
+        <div class="fsa-toggle-password"
+             (click)="cPassElement.type=(cPassElement.type==='password')? 'text':'password'; ">
+          {{(cPassElement.type === 'password') ? "Show Password" : "Hide Password"}}
+        </div>
         <app-question-popover class="align-self-center ml-1">
           <p>Reenter your password to confirm it’s correct. This field is case-sensitive and must exactly match your
             entry in the “Password” field.</p>
         </app-question-popover>
+      </div>
+      <div *ngIf="accountInfoForm.errors?.passwordNotMatch && password.touched && (confirmPassword.touched)"
+           class="alert alert-danger mt-1" style="margin-right: 26px">
+        <div *ngIf="accountInfoForm.errors?.passwordNotMatch">
+          Password does not match.
+        </div>
       </div>
     </div>
     <!--    action-->

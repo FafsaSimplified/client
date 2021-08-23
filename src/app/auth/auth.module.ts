@@ -22,6 +22,7 @@ import {ChallengeQuestionsFormComponent} from './create-account/challenge-questi
 import {ConfirmAndVerifyFormComponent} from './create-account/confirm-and-verify/confirm-and-verify-form/confirm-and-verify-form.component';
 import {VerifyContactInfoFormComponent} from './create-account/verify-contact-info/verify-contact-info-form/verify-contact-info-form.component';
 import {CommunicationPreferencesFormComponent} from './create-account/communication-preferences/communication-preferences-form/communication-preferences-form.component';
+import {NgxCaptchaModule} from 'ngx-captcha';
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import {CommunicationPreferencesFormComponent} from './create-account/communicat
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgxCaptchaModule
+  ],
+  exports: [
+    ConfirmAndVerifyComponent
   ],
   providers: []
 })

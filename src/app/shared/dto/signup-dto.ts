@@ -12,8 +12,8 @@ export class SignupDto {
   city: string;
   zipCode: string;
   cellPhone: string;
-  homePhone: string;
-  cqas: boolean;
+  homePhone?: string;
+  cqas?: boolean;
   language: string;
   smsOptIn: boolean;
 }

@@ -85,7 +85,7 @@ h4 {
 }
 
 
-.fsa_Link_HeaderLevel2HowAidWorks{
+.fsa_Link_HeaderLevel2HowAidWorks {
   font-family    : News Cycle, serif;
   text-transform : none;
   font-weight    : 700;
@@ -94,4 +94,18 @@ h4 {
   display        : block;
   font-size      : 16px;
   text-align     : left;
+}
+
+.fsa-toggle-password {
+  position       : absolute;
+  align-self     : center;
+  right          : 2.5rem;
+  margin-right   : 35px;
+  cursor         : pointer;
+  font-weight    : bold;
+  font-family    : "News Cycle";
+  font-size      : 0.75rem;
+  color          : #6e7678;
+  letter-spacing : normal;
+  z-index        : 20;
 }
