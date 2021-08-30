@@ -25,6 +25,11 @@ export class UserService {
     return this.httpClient.post<User>(`${this.url}/authenticate`, userLogin);
   }
 
+  public logout(): Observable<any> {
+    console.log('Attempt logout...');
+    return this.httpClient.delete(`${this.url}/logout`);
+  }
+
   setUser(user: User) {
     this.isLoggedIn = true;
     this.user = user;

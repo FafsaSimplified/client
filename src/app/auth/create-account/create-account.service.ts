@@ -55,8 +55,10 @@ export class CreateAccountService {
 
   private setDate(year: number, month: number, day: number): string {
     // dobDto.dob = `${personalInfo.year}-${personalInfo.month}-${personalInfo.day}`;
-    const dob = new Date(year, month, day);
+    const dob = new Date(year, month - 1, day);
+    console.log('dob is', dob.toISOString(), dob.toUTCString(), dob.toDateString());
     return dob.toISOString().substr(0, 10);
+    // return dob.toISOString();
   }
 
   async validatePersonalInfo(personalInfo: {

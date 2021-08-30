@@ -36,13 +36,23 @@ export class PersonalInfoFormComponent implements OnInit {
 
   private initForm() {
     const {firstName, middleName, lastName, dob, ssn} = this.createAccountService.signUpDto;
+    let month = null;
+    let day = null;
+    let year = null;
+    try {
+      const dobParsed = new Date(dob);
+      day = dobParsed.getUTCDate();
+      month = dobParsed.getUTCMonth() + 1;
+      year = dobParsed.getUTCFullYear();
+    } catch (err) {
+    }
     this.personalInfoForm = this.fb.group({
       firstName: [firstName, [Validators.required]],
       middleName: [middleName, [Validators.required]],
       lastName: [lastName, [Validators.required]],
-      month: [null, [Validators.required, Validators.min(1), Validators.max(12)]],
-      day: [null, [Validators.required, Validators.min(1), Validators.max(31)]],
-      year: [null, [Validators.required]],
+      month: [month, [Validators.required, Validators.min(1), Validators.max(12)]],
+      day: [day, [Validators.required, Validators.min(1), Validators.max(31)]],
+      year: [year, [Validators.required]],
       ssn: [ssn, [Validators.required]],
     });
     this.personalInfoForm.valueChanges.subscribe(value => {
