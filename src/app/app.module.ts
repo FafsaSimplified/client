@@ -7,10 +7,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from './layout/layout.module';
 import {SharedModule} from './shared/shared.module';
 import {AuthModule} from './auth/auth.module';
+// import {IconButtonComponent} from './shared/components/icon-button/icon-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // IconButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -18,10 +20,11 @@ import {AuthModule} from './auth/auth.module';
     BrowserAnimationsModule,
     LayoutModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // exports: [IconButtonComponent]
 })
 export class AppModule {
 }
