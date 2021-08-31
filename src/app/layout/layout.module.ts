@@ -8,10 +8,12 @@ import {HomeComponent} from './home/home.component';
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
+import {TabsModule} from 'ngx-bootstrap/tabs';
+import { InfoTabsComponent } from './info-tabs/info-tabs.component';
 
 
 @NgModule({
-  declarations: [NavigationComponent, HomeComponent, FooterComponent, HeaderComponent],
+  declarations: [NavigationComponent, HomeComponent, FooterComponent, HeaderComponent, InfoTabsComponent],
   exports: [
     NavigationComponent,
     HeaderComponent,
@@ -23,7 +25,8 @@ import {RouterModule} from '@angular/router';
     CollapseModule.forRoot(),
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
-    RouterModule
+    RouterModule,
+    TabsModule.forRoot()
   ],
   providers: []
 })

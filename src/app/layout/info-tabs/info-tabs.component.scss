@@ -1,0 +1,53 @@
+.fsa-info-tabs-wrapper {
+  margin-top  : -200px;
+  font-family : "Noto Serif", serif !important;
+  line-height : 1.5rem;
+
+  .fsa-info-tabs {
+    align-content : center;
+
+    .fsa-info-content {
+      text-align       : left;
+      background-color : #e7eff4 !important;
+      padding-top      : 6.25rem !important;
+      padding-bottom   : 6.25rem !important;
+      background       : url(https://studentaid.gov/Square-1.c7d4766526c351389a5f.svg) center center/cover no-repeat;
+    }
+
+    .nav-item {
+      border-radius    : 5px 5px 0 0;
+      background-color : #295d6d;
+      border-bottom    : none;
+      max-width        : 250px;
+
+      .active {
+        background-color : #e7eff4 !important;
+        height           : 100%;
+        color            : #1a1a1a !important;
+      }
+
+      .nav-link {
+        border-radius    : 5px 5px 0 0;
+        background-color : #295d6d;
+        border-bottom    : none;
+        max-width        : 250px;
+        padding          : 1.5rem 2rem .5rem;
+        height           : 100%;
+      }
+
+      .nav-link:hover {
+
+      }
+    }
+  }
+
+  @media screen and(max-width : 1100px) {
+    margin-top : 0;
+  }
+}
+
+
+.fsa-text-title {
+  font-size   : 1.25rem;
+  font-weight : 600;
+}
