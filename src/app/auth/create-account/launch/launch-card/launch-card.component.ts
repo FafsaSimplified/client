@@ -15,7 +15,7 @@ export class LaunchCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  getStarted() {
+    getStarted() {
     this.createAccountService.init();
     this.router.navigate(['/create-account/personal-info'])
       .then();

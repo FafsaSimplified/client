@@ -27,8 +27,10 @@ export class PersonalInfoFormComponent implements OnInit {
       if (isValid) {
         this.createAccountService.setPersonalInfo(personalInfo);
         this.router.navigate(['/create-account/account-info']).then();
+        console.log('finally here', this.personalInfoForm.value);
       }
     } else {
+      console.log('here', this.personalInfoForm.value);
       console.log(this.personalInfoForm.get('day').errors);
       this.createAccountService.setError('Required fields are not provided correctly');
     }
